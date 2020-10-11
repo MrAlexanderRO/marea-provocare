@@ -1,0 +1,27 @@
+#include <fstream>
+#define nmax 1600000 //1.600.000 pentru ca al un milionulea nr. prim este 15,485,863
+using namespace std;
+ifstream f("era.in"); //fisier de intrare
+ofstream g("era.out"); //fisier de iesire
+char v[nmax]; //vectorul suport pentru ciurul lui eratostene
+unsigned long long suma=0; //initializarea sumei
+void ciurul_lui_eratostene() //subprogram pentru generarea ciurului lui Eratostene
+{   v[0]=v[1]=1;
+    for(unsigned long long i=2;i*i<=nmax;i++)
+        if(v[i]==0)
+            for(unsigned long long j=2;j<=nmax/i;j++) v[i*j]=1;
+}
+int main()
+{   ciurul_lui_eratostene(); //apelarea subprogramului
+    unsigned long long n; //initializarea lui n
+    f>>n;
+    for(unsigned long long i=1;i<=nmax and n>0;i=i+2)
+        if(v[i]==0) //daca v[i]==0 atunci i este prim
+            {   //g<<i<<endl; folosita ca test
+                suma=suma+i; //calcularea sumei
+                n--;
+            }
+    g<<suma; //afisare
+    g.close();
+    return 0;
+}
