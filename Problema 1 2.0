@@ -28,4 +28,4 @@ int main()
     cout << suma; //afisare
     g.close();
     return 0;
-}
+} 
