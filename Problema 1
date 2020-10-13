@@ -32,7 +32,7 @@ int main()
     unsigned long long n; //initializarea lui n
     cin >> n;
     
-    n--;
+    n--; 
     
     for (unsigned long long i = 3; i <= nmax and n > 0; i = i + 2)
         
